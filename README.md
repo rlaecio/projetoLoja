@@ -1,0 +1,2 @@
+# projetoLoja
+ c e c++
