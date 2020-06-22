@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* Array ppara o sistema principal */
 struct listaProdutos
@@ -11,7 +12,7 @@ struct listaProdutos
 };
 
 /* Variaveis do sistema de vendas */
-int i, categoria = 1, continua = 1, continuar = 1, MAX_ESTOQUE;
+int i = 0, categoria = 1, continua = 1;
 struct listaProdutos cadastro[100];
 float desconto = 0, valorTotal;
 
@@ -32,7 +33,7 @@ int main()
 
         printf("Digite o nome do produto: ");
         fflush(stdin);
-        fgets(cadastro[i].nome_prod, 100, stdin);
+        fgets(cadastro[i].nome_prod, 30, stdin);
 
         printf("\n");
 
@@ -69,39 +70,46 @@ int main()
 
         printf("* * CADASTRAR OUTRO ? * * \n");
         printf(" 1 - Sim.  2 - Não : ");
-        scanf("%i", &continuar);
-        if (continuar == 1)
+        int continuar;
+        scanf("%d", &continuar);
+        
+        if (continuar == 1) 
         {
             int continua = 1;
             i++;
         }
         else
         {
-            // limpar a tela ****
-            system("clear"); // para hambiente like unix
-            //system("cls"); // para hambientes windows
-
-            printf("\n");
-            printf("-------------------------------------------------------------- \n");
-            printf("Produto \t Valor Total \tDesconto \tValor Final \n ");
-
-            // inicia o loop e impressão da venda
-            for (int j = 0; j < sizeof(cadastro[]) / sizeof( int ); j++)
+            if (continuar == 2)
             {
-                // efetuando os calculos unitarios e totais dos produtos e seus descontos
-                valorTotal = cadastro[j].val_unitario * cadastro[j].quantidade;
-                cadastro[j].percentual = valorTotal * desconto;
-                float valorFinal = valorTotal - cadastro[j].percentual;
 
-                printf("%s", cadastro[j].nome_prod);
-                printf("\t \t%.2f", valorTotal);
-                printf("\t \t%.2f ", cadastro[j].percentual);
-                printf("\t \t%.2f ", valorFinal);
+                // limpar a tela ****
+                system("clear"); // para hambiente like unix
+                //system("cls"); // para hambientes windows
+
                 printf("\n");
-            }
+                printf("-------------------------------------------------------------- \n");
+                printf("Produto \t Valor Total \tDesconto \tValor Final \n ");
 
-            printf("-------------------------------------------------------------- \n");
-            return 0;
+                // inicia o loop e impressão da venda
+                int len_vet = 10 ;
+                for (int j = 0; j < len_vet; j++)
+                {
+                    // efetuando os calculos unitarios e totais dos produtos e seus descontos
+                    valorTotal = cadastro[j].val_unitario * cadastro[j].quantidade;
+                    cadastro[j].percentual = valorTotal * desconto;
+                    float valorFinal = valorTotal - cadastro[j].percentual;
+
+                    printf("%s", cadastro[j].nome_prod);
+                    printf("\t \t%.2f", valorTotal);
+                    printf("\t \t%.2f ", cadastro[j].percentual);
+                    printf("\t \t%.2f ", valorFinal);
+                    printf("\n");
+                }
+
+                printf("-------------------------------------------------------------- \n");
+                return 0;
+            }
         }
     } while (continua == 1);
 
