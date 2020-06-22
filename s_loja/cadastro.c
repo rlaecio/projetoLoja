@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define NUM_ELEMENTS(X) (sizeof(X) / sizeof(X[0]))
 
 /* Array ppara o sistema principal */
 struct listaProdutos
@@ -89,10 +90,10 @@ int main()
 
                 printf("\n");
                 printf("-------------------------------------------------------------- \n");
-                printf("Produto \t Valor Total \tDesconto \tValor Final \n ");
+                printf("Produto \t \t Valor Total \tDesconto \tValor Final \n ");
 
                 // inicia o loop e impressão da venda
-                int len_vet = sizeof listaProdutos;
+                int len_vet = sizeof cadastro;
                 for (int j = 0; j < len_vet; j++)
                 {
                     // efetuando os calculos unitarios e totais dos produtos e seus descontos
@@ -101,9 +102,9 @@ int main()
                     float valorFinal = valorTotal - cadastro[j].percentual;
 
                     printf("%s", cadastro[j].nome_prod);
-                    printf("\t \t%.2f", valorTotal);
-                    printf("\t \t%.2f ", cadastro[j].percentual);
-                    printf("\t \t%.2f ", valorFinal);
+                    printf("\t \t \t%.2f", valorTotal);
+                    printf("\t \t \t%.2f ", cadastro[j].percentual);
+                    printf("\t \t \t%.2f ", valorFinal);
                     printf("\n");
                 }
 
