@@ -112,7 +112,7 @@ int main()
                 }
 
                 printf("-------------------------------------------------------------- \n");
-                printf("                                        Valor total da venda: %.2f", totalVendas);
+                printf("                               Valor total da venda: %.2f", totalVendas);
                 printf("\n-------------------------------------------------------------- \n");
 
                 return 0;
