@@ -92,7 +92,7 @@ int main()
                 printf("Produto \t Valor Total \tDesconto \tValor Final \n ");
 
                 // inicia o loop e impressão da venda
-                int len_vet = 10 ;
+                int len_vet = sizeof listaProdutos;
                 for (int j = 0; j < len_vet; j++)
                 {
                     // efetuando os calculos unitarios e totais dos produtos e seus descontos
