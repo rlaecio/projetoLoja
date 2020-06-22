@@ -1,32 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define MAX_ESTOQUE 100
+/* Array ppara o sistema principal */
+struct listaProdutos
+{
+    char nome_prod[100];
+    int quantidade;
+    float val_unitario;
+    float percentual;
+};
+
+/* Variaveis do sistema de vendas */
+struct listaProdutos cadastro[MAX_ESTOQUE];
+int i, categoria = 1, continua = 1, continuar = 1;
+float desconto = 0;
 
 int main()
 {
 
-    printf("------------------------------------ \n");
-    printf("             Sistema Loja            \n");
-    printf("------------------------------------ \n");
-    printf("\n");
-
-    /* Array ppara o sistema principal */
-    struct listaProdutos
+    do
+    // Inicia o laço ate que se peça para cancelar
     {
-        char nome_prod[100];
-        float quantidade;
-        float val_unitario;
-        float percentual;
-    };
+        // limpar a tela ****
+        system("clear"); // para hambiente like unix
+        //system("cls"); // para hambientes windows
 
-    /* Variaveis do sistema de vendas */
-    int posicaoVetor = 0;
-    struct listaProdutos cadastro;
+        printf("------------------------------------ \n");
+        printf("             Sistema Loja            \n");
+        printf("------------------------------------ \n");
+        printf("\n");
 
-    do // Inicia o laço ate que se peça para cancelar
-    {
         printf("Digite o nome do produto: ");
         fflush(stdin);
-        fgets(cadastro.nome_prod, 100, stdin);
+        fgets(cadastro[i].nome_prod, 100, stdin);
 
         printf("\n");
 
@@ -56,32 +62,26 @@ int main()
         }
 
         printf("Digite a quantidade:  ");
-        scanf("%f", &quantidade[posicaoVetor]);
+        scanf("%d", &cadastro[i].quantidade);
 
         printf("Digite o valor unitario:  ");
-        scanf("%f", &valor_unitario[posicaoVetor]);
+        scanf("%f", &cadastro[i].val_unitario);
 
-        &nome_prod[posicaoVetor] = nome_produto;
-        valor2 = valor_unitario[posicaoVetor] * quantidade[posicaoVetor];
-
-        &percentual[posicaoVetor] = valor2 * desconto;
-        total = valor2 - percentual[posicaoVetor];
+        // efetuando os calculos unitarios e totais dos produtos e seus descontos
+        float valorTotal = cadastro[i].val_unitario * cadastro[i].quantidade;
+        cadastro[i].percentual = valorTotal * desconto;
+        float valorFinal = valorTotal - cadastro[i].percentual;
 
         printf("1  - Continuar cadastrando.  2 - Sair  :");
-        scanf("%d", &continuar);
-        if (continuar == 1)
+        scanf("%i", &continuar);
+        if (continuar == 0)
         {
-            &continua = 1;
-            break;
+            int continua = 0;
+            return 0;
         }
-        else
-        {
-            &continua = 0;
-            posicaoVetor++;
-        }
-
     } while (continua == 0);
 
+    /*
     printf("\n");
     printf("-------------------------------------------- \n");
     printf("Valor Total \tDesconto \tValor Final \n ");
@@ -94,6 +94,8 @@ int main()
     printf("\n");
     printf("FIM! \n \n");
     system("clear");
+    
+*/
 
     return (main());
 }
