@@ -13,8 +13,8 @@ struct listaProdutos
 
 /* Variaveis do sistema de vendas */
 int i = 0, categoria = 1, continua = 1;
-struct listaProdutos cadastro[10];
-float desconto = 0, valorTotal;
+struct listaProdutos cadastro[100];
+float desconto = 0, valorTotal, totalVendas = 0;;
 
 int main()
 {
@@ -92,7 +92,7 @@ int main()
                 printf("Produto \t \t Valor Total \tDesconto \tValor Final \n ");
 
                 // inicia o loop e impressão da venda
-
+                
                 int len_vet = i + 1 ;
                 for (int j = 0; j < len_vet; j++)
                 {
@@ -100,15 +100,21 @@ int main()
                     valorTotal = cadastro[j].val_unitario * cadastro[j].quantidade;
                     cadastro[j].percentual = valorTotal * desconto;
                     float valorFinal = valorTotal - cadastro[j].percentual;
+                    totalVendas = totalVendas + valorFinal;
 
                     printf("%s", cadastro[j].nome_prod);
                     printf("\t \t \t %.2f", valorTotal);
                     printf("\t\t%.2f ", cadastro[j].percentual);
                     printf("\t\t%.2f ", valorFinal);
                     printf("\n");
+
+                    
                 }
 
                 printf("-------------------------------------------------------------- \n");
+                printf("                                        Valor total da venda: %.2f", totalVendas);
+                printf("\n-------------------------------------------------------------- \n");
+
                 return 0;
             }
         }
