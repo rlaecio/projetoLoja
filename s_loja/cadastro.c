@@ -9,6 +9,9 @@ int main()
     printf("------------------------------ \n");
     printf("\n");
 
+    /* Array ppara o sistema principal */
+    
+    /* Variaveis do sistema de vendas */
     char nome_produto[30], nome_prod[100];
     double quantidade[100], valor_unitario[100], valor2, desconto, total, totalDesconto = 0, percentual[100];
     int categoria, vet_posicao = 0, continuar, continua;
@@ -16,7 +19,7 @@ int main()
     do
     {
         printf("Digite o nome do produto: ");
-        scanf("%s", &nome_produto);
+        scanf("%s", &nomeProduto);
 
         printf("\n");
 
