@@ -23,8 +23,8 @@ int main()
     // Inicia o laço ate que se peça para cancelar
     {
         // limpar a tela ****
-        system("clear"); // para hambiente like unix
-        //system("cls"); // para hambientes windows
+        system("clear"); // para ambientes like unix
+        //system("cls"); // para ambientes windows
 
         printf("------------------------------------ \n");
         printf("             Sistema Loja            \n");
@@ -84,8 +84,8 @@ int main()
             {
 
                 // limpar a tela ****
-                system("clear"); // para hambiente like unix
-                //system("cls"); // para hambientes windows
+                system("clear"); // para ambientes like unix
+                //system("cls"); // para ambientes windows
 
                 printf("\n");
                 printf("-------------------------------------------------------------- \n");
